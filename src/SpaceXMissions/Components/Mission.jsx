@@ -2,16 +2,12 @@ import React, { useState } from 'react'
 import { DateTime } from 'luxon'
 import MStyles from './Mission.module.css'
 const Mission = (mission) => {
-   
-
-    
     const [isOpen, setIsOpen] = useState(false)
 
     const handleClick = () => {
         setIsOpen(!isOpen)
     }
-
-    const formattedDate = DateTime.fromISO(mission.mission.launch_date_local, {zone:'utc'}).toLocaleString(DateTime.DATETIME_MED)
+    const formattedDate = DateTime.fromISO(mission.mission.launch_date_local, { zone: 'utc' }).toLocaleString(DateTime.DATETIME_MED)
 
     return (
         <div key={mission.mission.mission_name} className={MStyles.missionContainer}>
@@ -26,8 +22,6 @@ const Mission = (mission) => {
             {isOpen && (
                 <p>{mission.mission.details}</p>
             )}
-
-
         </div>
     )
 }

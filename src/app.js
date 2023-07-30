@@ -2,11 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import SpaceXMissions from './SpaceXMissions/SpaceXMissions.jsx';
 import AppStyles from './app.module.css'
+import { Provider } from 'react-redux';
+import { store } from './Redux/store.js'
 const App = () => {
     return (
-        <div className={AppStyles.appContainer}>
-            <SpaceXMissions />
-        </div>
+        <Provider store={store}>
+            <div className={AppStyles.appContainer}>
+                <SpaceXMissions />
+            </div>
+        </Provider>
     );
 };
 
