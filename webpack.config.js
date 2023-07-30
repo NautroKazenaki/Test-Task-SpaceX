@@ -18,7 +18,11 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
-              },
+            },
+            {
+                test: /\.(svg)(\?[a-z0-9=.]+)?$/,
+                loader: 'url-loader'
+            }
         ],
         
     },

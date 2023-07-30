@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import SXMStyles from './SpaceXMissions.module.css'
+import Mission from './Components/Mission.jsx'
+import SortOld from '../../images/icons/SortOld.svg'
+import SortNew from '../../images/icons/SortNew.svg'
 
 const SpaceXMissions = () => {
     const [missions, setMissions] = useState([])
     const [sortByYear, setSortByYear] = useState('desc')
-    const [showMissionDetails, setShowMissionDetails] = useState(false)
+    const [sortByOld, setSortByOld] = useState(false)
 
     useEffect(() => {
         const Data = async () => {
@@ -28,35 +31,21 @@ const SpaceXMissions = () => {
     }, [sortByYear]);
 
     const toggleSortByYear = () => {
+        debugger
         setSortByYear(sortByYear === "asc" ? 'desc' : 'asc')
+        setSortByOld(!sortByOld)
     };
+    
 
-    const toggleShowMissionDetails = () => {
-        setShowMissionDetails(!showMissionDetails)
-    };
 
     return (
         <div className={SXMStyles.mainContainer} >
             <h1>SpaceXMissions</h1>
-            <button onClick={toggleSortByYear}> Сортировка по годам</button>
+            <button onClick={toggleSortByYear} className={SXMStyles.toggleButton}><img src={sortByOld ? SortNew : SortOld }/> Сортировка по годам</button>
             <div className={SXMStyles.contentContainer}>
                 <div className={SXMStyles.itemContainer}>
                     {missions.map(mission => (
-                        <div key={mission.mission_name}>
-                            {mission.links && mission.links.mission_patch && (
-                                <img src={mission.links.mission_patch} alt={mission.mission_name} />
-                            )}
-                            <h2>{mission.mission_name}</h2>
-                            <h2>Дата запуска: {mission.launch_data_local}</h2>
-                            <button onClick={toggleShowMissionDetails}>
-                                Подробнее о миссии
-                            </button>
-                            {showMissionDetails && (
-                                <p>{mission.details}</p>
-                            )}
-
-
-                        </div>
+                        <Mission mission={mission} key={mission.mission_name}/>
                     ))}
                 </div>
 
