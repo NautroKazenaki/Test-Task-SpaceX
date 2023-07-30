@@ -1,5 +1,6 @@
 const path = require('path');
 
+
 module.exports = {
     entry: './src/app.js',
     output: {
@@ -21,21 +22,24 @@ module.exports = {
             },
             {
                 test: /\.(svg)(\?[a-z0-9=.]+)?$/,
-                loader: 'url-loader'
+                loader: 'file-loader'
             }
         ],
-        
+
     },
     mode: 'development',
     devServer: {
-        
+
         static: {
             directory: path.join(__dirname, '/')
         },
         devMiddleware: {
             publicPath: '/'
-          },
+        },
         port: 3000,
-        // publicPath: '/'
+
+    },
+    resolve: {
+        extensions: ['.js', '.jsx'],
     },
 }

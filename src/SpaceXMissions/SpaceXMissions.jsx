@@ -33,8 +33,8 @@ const SpaceXMissions = () => {
             <button onClick={toggleSortOrder} className={SXMStyles.toggleButton}><img src={sortByYear === "asc" ? SortNew : SortOld} /> Сортировка по годам</button>
             <div className={SXMStyles.contentContainer}>
                 <div className={SXMStyles.itemContainer}>
-                    {missions?.map(mission => (
-                        <Mission mission={mission} key={mission.mission_name} />
+                    {missions?.map((mission, index) => (
+                        <Mission mission={mission} key={mission.mission_name} data-testid={`mission-${index}`} />
                     ))}
                 </div>
             </div>

@@ -10,7 +10,7 @@ const Mission = (mission) => {
     const formattedDate = DateTime.fromISO(mission.mission.launch_date_local, { zone: 'utc' }).toLocaleString(DateTime.DATETIME_MED)
 
     return (
-        <div key={mission.mission.mission_name} className={MStyles.missionContainer}>
+        <div key={mission.mission.mission_name} className={MStyles.missionContainer} data-testid="mission">
             {mission.mission.links && mission.mission.links.mission_patch && (
                 <img src={mission.mission.links.mission_patch} alt={mission.mission.mission_name} />
             )}

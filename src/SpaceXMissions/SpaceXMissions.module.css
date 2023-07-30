@@ -4,32 +4,37 @@
     align-items: center;
     margin-bottom: 20px;
     color: white;
-    
+
 }
+
 .contentContainer {
-    
+
     width: calc(75% - 70px);
-    
+
     margin-bottom: 20px;
 }
+
 .toggleButton {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: yellow;
-    color:black;
+    color: black;
 }
+
 .itemContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
 .contentContainer img {
     width: 100%;
     max-width: 300px;
     height: auto;
     margin-bottom: 10px;
 }
+
 .contentContainer h2 {
     font-size: 1.2rem;
     margin-bottom: 5px;
@@ -40,6 +45,7 @@
     margin-bottom: 10px;
     max-width: 960px;
 }
+
 .contentContainer button {
     background-color: #123;
     color: #FFF;
